@@ -87,12 +87,12 @@ button:hover{
 }
 
 ::placeholder {
-    color: white;
+    color: #689768;
     opacity: 1; /* Firefox */
   }
   
   ::-ms-input-placeholder { /* Edge 12-18 */
-    color: white;
+    color: #689768;
   }
   .i1{
     border: 3px solid #689768;
