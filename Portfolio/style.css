@@ -1,0 +1,111 @@
+*{
+    font-family: poppins;
+    background-color: #FFFFFFF;
+    color: #689768;
+
+}
+ul{
+    float: right;
+    margin-right: 100px;
+}
+li{
+    float: left;
+    margin-right: 50PX;
+    padding-top: 5px;
+    list-style: none;
+    size: 18px;
+    
+}
+.gap{
+    margin: 100px;
+}
+th{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+td{
+    border-top-color: #86AC86;
+}
+.column{
+    float: left;
+    text-align: center;
+    width: 500px;
+    padding-bottom: 15px;
+    margin: 10px;
+    height: 250px;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+.row::after{
+    clear: both;
+    display: table;
+    content: "";
+}
+.interests{
+    font-weight: 600;
+    font-size: 24px;
+}
+.c2{
+    color: #86AC86;
+}
+form{
+    float: right;
+    margin-top: -100px;
+    margin-right: 150px;
+}
+input{
+    display: block;
+    width: 500px;
+    margin-bottom: 10px;
+   
+    border-color: 1px #f5f5f5;
+    opacity: 11%;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button{
+    background-color: #689768;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+    border: #7562E0;
+    border-radius: 4px;
+    cursor: progress;
+}
+button:hover{
+    background-color: #7562E0;
+    opacity: 0.5;
+}
+.message{
+    height: 100px;
+    width:500px
+}
+
+.design{
+    float: right;
+    margin-right: 250px;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+  
+  ::-ms-input-placeholder { /* Edge 12-18 */
+    color: white;
+  }
+  .i1{
+    border: 3px solid #689768;
+    border-radius: 16px;
+    margin-right: 10px;
+    padding: 10px;
+    display: inline-block;
+}
+.i2{
+    border: 3px solid #F5F5F5;
+    border-radius: 16px;
+    margin-right: 10px;
+    padding: 10px;
+    display: inline-block;
+}
+
