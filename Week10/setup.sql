@@ -1,0 +1,8 @@
+CREATE DATABASE week10;
+USE week10;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
