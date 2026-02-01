@@ -1180,8 +1180,9 @@ nav ul li:last-child a:hover {
     cursor: pointer;
     padding: 7px;
     border-radius: 5px;
-    color: #355E3B;
-    border: 2px solid #355E3B;
+    background-color: #f9fbf9;
+    border: 2px solid #d1e7d1;
+    color: #5F8356;
     margin-top: 10px ;
 }
 
@@ -1195,21 +1196,6 @@ nav ul li:last-child a:hover {
     color: white;
 }
 
-.start_time input {
-    padding: 7px;
-    border-radius: 5px;
-    color: #355E3B;
-    border: 2px solid #355E3B;
-    margin-top: 10px ;
-}
-
-.end_time input {
-    padding: 7px;
-    border-radius: 5px;
-    color: #355E3B;
-    border: 2px solid #355E3B;
-    margin-top: 10px ;
-}
 
 .rooms-management {
     padding: 20px;

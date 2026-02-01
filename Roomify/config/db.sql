@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS booking_table(
             room_id INT,
             customer_name VARCHAR(50) NOT NULL,
             customer_email VARCHAR(100) NOT NULL,
-            start_time DATETIME,
-            end_time DATETIME,
+            start_time DATE,
+            end_time DATE,
             booking_status ENUM('confirmed','canceled','completed') DEFAULT 'confirmed',
             FOREIGN KEY (user_id) REFERENCES users(user_id),
             FOREIGN KEY (room_id) REFERENCES rooms(room_id)

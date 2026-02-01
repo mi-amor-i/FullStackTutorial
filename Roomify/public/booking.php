@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
 include '../includes/header.php';
 include '../includes/navbar.php';
 
@@ -7,6 +13,9 @@ $error = '';
 $success = '';
 
 $user_role  = $_GET['room_id'] ?? null;
+$user_id = $_SESSION['user_id'];
+// $user_name = $_SESSION['user_name'] ?? '';
+// $user_email = $_SESSION['user_mail'] ?? '';
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -16,6 +25,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $start_time = $_POST['start_time'];
     $end_time = $_POST['end_time'];
     $booking_status = 'confirmed';
+    $user_name = $_POST['customer_name'];
+    $user_mail = $_POST['customer_email'];
     
     // Basic validation
     if(empty($room_id) || empty($start_time) || empty($end_time)) {
@@ -56,11 +67,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     
                     // Insert booking
                     $sql = "INSERT INTO booking_table 
-                            (user_id, room_id, start_time, end_time, booking_status) 
-                            VALUES (?, ?, ?, ?, ?)";
+                            (user_id, room_id, customer_name, customer_email, start_time, end_time, booking_status) 
+                            VALUES (?, ?, ?, ?, ?, ?, ?)";
                     
                     $stmt = $pdo->prepare($sql);
-                    if($stmt->execute([$user_id, $room_id, $start_time, $end_time, $booking_status])) {
+                    if($stmt->execute([$user_id, $room_id, $user_name, $user_mail, $start_time, $end_time, $booking_status])) {
                         $booking_id = $pdo->lastInsertId();
                         $success = "Booking confirmed successfully! Booking ID: " . $booking_id . 
                                    " Total Amount: NPR " . number_format($total_amount, 2);
@@ -184,14 +195,14 @@ function formatRoomType($type) {
         <div class="form-row">
             <div class="form-group">
                 <label for="customer_name">Customer Name *</label>
-                <input type="text"  name="customer_name" required>
+                <input type="text" name="customer_name" value="<?php echo (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'user' && isset($_SESSION['user_name'])) ? htmlspecialchars($_SESSION['user_name']) : ''; ?>" required>
             </div>
         </div>
         
         <div class="form-row">
             <div class="form-group">
                 <label for="end_time">Customer Email *</label>
-                <input type="text" name="customer_email" required>
+                <input type="text" name="customer_email" value="<?php echo (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'user' && isset($_SESSION['user_mail'])) ? htmlspecialchars($_SESSION['user_mail']) : ''; ?>" required>
             </div>
         </div>
 

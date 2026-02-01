@@ -32,6 +32,8 @@ try {
                     session_regenerate_id(true);
                     $_SESSION['user_id'] = $user['user_id'];
                     $_SESSION['user_role'] = $user['user_role'];
+                    $_SESSION['user_name'] = $user['user_name'];
+                    $_SESSION['user_mail'] = $user['user_email'];
 
                     if($user['user_role']=='user'){
                         header('Location: ../public/index.php');

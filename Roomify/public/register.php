@@ -18,10 +18,10 @@ try {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             
             if (empty($password)) {
-                    echo "Password cannot be empty.";
+                    $message = "Password cannot be empty.";
             }
             elseif (strlen($password) < 8) {
-                echo "Password must be at least 8 characters long.";
+                $message = "Password must be at least 8 characters long.";
             }
             else {
 
@@ -33,7 +33,7 @@ try {
                 $stmt->execute([$name,$email,$hashedPassword]);
 
                 $message = "User signed up successfully";
-                header('refresh: 2; url=login.php');
+                header('refresh: 1; url=login.php');
             }
 
         } else {
@@ -47,19 +47,13 @@ try {
 
 ?>
 <div class="center-container">
-    <?php if ($error): ?>
+    <?php if ($message): ?>
         <div class="error-message">
-            <i class="fas fa-exclamation-circle"></i>
-            <?php echo htmlspecialchars($error); ?>
+            <?php echo htmlspecialchars($message); ?>
         </div>
     <?php endif; ?>
     
-    <?php if ($success): ?>
-        <div class="success-message">
-            <i class="fas fa-check-circle"></i>
-            <?php echo htmlspecialchars($success); ?>
-        </div>
-    <?php endif; ?>
+    
 
     <section class="brand">
     	<h1>Roomify</h1>
